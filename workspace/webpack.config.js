@@ -50,13 +50,15 @@ module.exports = (env) => {
     plugins: [],
   };
 
-  config.plugins.push(
-    new webpack.DefinePlugin({
-      '__SURGICAL_DEBUG__': JSON.stringify(env.target === 'dev'),
-    })
-  );
+
 
   if (env.target === 'prod') {
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify('production')
+      })
+    );
+
     config.plugins.push(
       new webpack.optimize.ModuleConcatenationPlugin()
     );
@@ -70,6 +72,18 @@ module.exports = (env) => {
         },
       })
     );
+  } else {
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify('development')
+      })
+    );
+
+    /*config.plugins.push(
+      new webpack.DefinePlugin({
+        '__SURGICAL_DEBUG__': JSON.stringify(env.target === 'dev'),
+      })
+    );*/
   }
 
   if (!env.nobabel) {

@@ -1,7 +1,7 @@
 'use strict';
 
-import React from '../todomvc/js/react';
-import ReactDOM from '../todomvc/js/react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import {Router} from '../todomvc/js/director';
 import '../todomvc/js/utils';
 import '../todomvc/js/todoModel';
