@@ -1,0 +1,17 @@
+{
+  "name": "surgical",
+  "version": "0.5.0",
+  "license": "MIT",
+  "description": "Super fast and flexible low-level declarative JavaScript library for building user interfaces.",
+  "author": "Andreas Svensson <andreas@syranide.com>",
+  "homepage": "https://github.com/syranide/surgical",
+  "bugs": "https://github.com/syranide/surgical/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syranide/surgical.git"
+  },
+  "keywords": [
+    "surgical",
+    "declarative"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "scripts": {
+    "fastdev": "webpack --env.target=dev --env.watch --env.nobabel",
+    "buildfastdev": "webpack --env.target=prod --env.watch --env.nobabel",
+    "dev": "webpack --env.target=dev --env.watch",
+    "build": "webpack --env.target=prod",
+    "dev-gcc": "java -XX:+TieredCompilation -jar node_modules/google-closure-compiler/compiler.jar -O ADVANCED --debug --formatting=PRETTY_PRINT --js \"src/**.js\" --js \"packages/**.js\" --entry_point \"src/index\" --js_output_file \"output/bundle.js\" --create_source_map \"output/bundle.js.map\" --source_map_include_content --output_wrapper \"(function(){%output%}).call(this)\n//# sourceMappingURL=bundle.js.map\" --language_out ECMASCRIPT5_STRICT --new_type_inf --dependency_mode STRICT --env BROWSER --module_resolution NODE --warning_level=VERBOSE --jscomp_warning=extraRequire",
+    "dev-gcc-types": "java -XX:+TieredCompilation -jar node_modules/google-closure-compiler/compiler.jar -O ADVANCED --checks_only --js \"src/**.js\" --js \"packages/**.js\" --entry_point \"src/index\" --language_out ECMASCRIPT5_STRICT --new_type_inf --dependency_mode STRICT --env BROWSER --module_resolution NODE --warning_level=VERBOSE --jscomp_warning=newCheckTypes --jscomp_warning=reportUnknownTypes --jscomp_warning=extraRequire",
+    "build-gcc": "java -XX:+TieredCompilation -jar node_modules/google-closure-compiler/compiler.jar -O ADVANCED --js \"src/**.js\" --js \"packages/**.js\" --entry_point \"src/index\" --js_output_file \"output/bundle.js\" --create_source_map \"output/bundle.js.map\" --source_map_include_content --output_wrapper \"(function(){%output%}).call(this)\" --language_out ECMASCRIPT5_STRICT --new_type_inf --env BROWSER --module_resolution NODE --warning_level=VERBOSE --jscomp_warning=extraRequire",
+    "build-gcc-es6": "java -XX:+TieredCompilation -jar node_modules/google-closure-compiler/compiler.jar -O ADVANCED --js \"src/**.js\" --js \"packages/**.js\" --entry_point \"src/index\" --js_output_file \"output/bundle.js\" --create_source_map \"output/bundle.js.map\" --source_map_include_content --output_wrapper \"(function(){%output%}).call(this)\" --language_out ECMASCRIPT6_STRICT --new_type_inf --env BROWSER --module_resolution NODE --warning_level=VERBOSE --jscomp_warning=extraRequire"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-minify-webpack-plugin": "^0.3.0",
+    "babel-runtime": "^6.26.0",
+    "benchmark": "^2.1.4",
+    "react": "^16.2.0",
+    "webpack-sources": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "core-js": "^2.5.3",
+    "google-closure-compiler": "^20180101.0.0",
+    "webpack": "^3.10.0"
+  }
+}
