@@ -76,7 +76,7 @@ export default function objectKeyValueReconcile(nextObject, lastObject, callback
     for (let j = i; j < nextKeys.length; j++) {
       let name = nextKeys[j];
       if (!hasOwnProperty.call(lastObject, name)) {
-        // Add
+        // Add.
         callback(callbackArg, name, nextObject[name], undefined);
       }
     }

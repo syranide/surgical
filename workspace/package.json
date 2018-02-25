@@ -4,6 +4,7 @@
     "fastdev": "webpack --env.target=dev --env.watch --env.nobabel",
     "buildfastdev": "webpack --env.target=prod --env.watch --env.nobabel",
     "dev": "webpack --env.target=dev --env.watch",
+    "builddev": "webpack --env.target=prod --env.watch",
     "build": "webpack --env.target=prod",
     "dev-gcc": "java -XX:+TieredCompilation -jar node_modules/google-closure-compiler/compiler.jar -O ADVANCED --debug --formatting=PRETTY_PRINT --js \"src/**.js\" --js \"packages/**.js\" --entry_point \"src/index\" --js_output_file \"output/bundle.js\" --create_source_map \"output/bundle.js.map\" --source_map_include_content --output_wrapper \"(function(){%output%}).call(this)\n//# sourceMappingURL=bundle.js.map\" --language_out ECMASCRIPT5_STRICT --new_type_inf --dependency_mode STRICT --env BROWSER --module_resolution NODE --warning_level=VERBOSE --jscomp_warning=extraRequire",
     "dev-gcc-types": "java -XX:+TieredCompilation -jar node_modules/google-closure-compiler/compiler.jar -O ADVANCED --checks_only --js \"src/**.js\" --js \"packages/**.js\" --entry_point \"src/index\" --language_out ECMASCRIPT5_STRICT --new_type_inf --dependency_mode STRICT --env BROWSER --module_resolution NODE --warning_level=VERBOSE --jscomp_warning=newCheckTypes --jscomp_warning=reportUnknownTypes --jscomp_warning=extraRequire",

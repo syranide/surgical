@@ -11,6 +11,8 @@ import insertAfterNode from '../private/insertAfterNode';
 //       we could also generate a remove/insert plan, but maybe that's more costly than it's worth
 //       but it should amortize with the costly remove/insert so maybe it doesn't matter
 //       can also use a recursion-callback
+//       could also have a separate method for these, where the declarative parent instead
+//       compiles a list of indicies which should be removed/inserted ... should be faster too
 // TODO: Support string children directly?
 
 export default function updateNodeChildrenStaticallyIndexed(containerNode, nextChildren, lastChildren) {

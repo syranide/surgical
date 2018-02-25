@@ -44,6 +44,7 @@ class MyExample extends SurgicalDeclarativeComponent {
     );
   }
 }
+
 let instance = MyExample.createComponent(document, {label: 'Click me!'});
 document.body.appendChild(instance.node);
 instance.update({label: 'Click me! Now!'});
