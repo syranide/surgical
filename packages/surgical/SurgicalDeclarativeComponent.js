@@ -26,16 +26,17 @@ class SurgicalDeclarativeComponentHost {
       throw enhanceError(e, 'createComponent', renderComponent);
     }
 
-    if (componentInstance.componentAfterCreate !== undefined) {
-      componentInstance.componentAfterCreate();
-    }
-
     that.node = renderInstance.node;
     that.renderedProps = props;
     that.renderedState = renderedState;
     that.componentInstance = componentInstance;
     that.renderComponent = renderComponent;
     that.renderInstance = renderInstance;
+
+    if (componentInstance.componentAfterCreate !== undefined) {
+      componentInstance.componentAfterCreate();
+    }
+
     return that;
   }
 
@@ -65,16 +66,17 @@ class SurgicalDeclarativeComponentHost {
       throw e;
     }
 
-    if (componentInstance.componentAfterCreate !== undefined) {
-      componentInstance.componentAfterCreate();
-    }
-
     that.node = externalNode;
     that.renderedProps = props;
     that.renderedState = renderedState;
     that.componentInstance = componentInstance;
     that.renderComponent = renderComponent;
     that.renderInstance = renderInstance;
+
+    if (componentInstance.componentAfterCreate !== undefined) {
+      componentInstance.componentAfterCreate();
+    }
+
     return that;
   }
 
