@@ -1,5 +1,6 @@
 import SurgicalBaseElement from './SurgicalBaseElement';
 import updateElementAttribute from './core/updateElementAttribute';
+import updateElementAttributeNS from './core/updateElementAttributeNS';
 import updateElementAttributes from './core/updateElementAttributes';
 import updateElementProxyEventListeners from './core/updateElementProxyEventListeners';
 import updateStyleProperties from './core/updateStyleProperties';
@@ -14,6 +15,7 @@ export default class SurgicalElement extends SurgicalBaseElement {
     this.nodeStyle = node.style;
 
     updateElementAttribute(node, 'class', props.className, null);
+    updateElementAttributeNS(node, 'http://www.w3.org/1999/xlink', 'xlink:href', props.xlinkHref, null);
     updateElementAttributes(node, props.attributes, null);
     updateStyleProperties(this.nodeStyle, props.style, null);
     this.eventListenersInstance = updateElementProxyEventListeners(node, null, props.listeners, null);
@@ -30,6 +32,7 @@ export default class SurgicalElement extends SurgicalBaseElement {
     //}
 
     updateElementAttribute(node, 'class', nextProps.className, lastProps.className);
+    updateElementAttributeNS(node, 'http://www.w3.org/1999/xlink', 'xlink:href', nextProps.xlinkHref, lastProps.xlinkHref);
     updateElementAttributes(node, nextProps.attributes, lastProps.attributes);
     updateStyleProperties(this.nodeStyle, nextProps.style, lastProps.style);
     this.eventListenersInstance = updateElementProxyEventListeners(node, this.eventListenersInstance, nextProps.listeners, lastProps.listeners);
