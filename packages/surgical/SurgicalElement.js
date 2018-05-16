@@ -15,6 +15,7 @@ export default class SurgicalElement extends SurgicalBaseElement {
     this.nodeStyle = node.style;
 
     updateElementAttribute(node, 'class', props.className, null);
+    // Safari still does not support "href" for SVG, "xlink:href" is still required. -- 16 May 2018
     updateElementAttributeNS(node, 'http://www.w3.org/1999/xlink', 'xlink:href', props.xlinkHref, null);
     updateElementAttributes(node, props.attributes, null);
     updateStyleProperties(this.nodeStyle, props.style, null);
