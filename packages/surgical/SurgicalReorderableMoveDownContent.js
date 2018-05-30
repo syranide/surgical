@@ -9,6 +9,7 @@ import updateNodeChildrenMoveDown from './core/updateNodeChildrenMoveDown';
 // TODO: it should be trivial to ignore nulls... worth it? why?
 
 export default class SurgicalReorderableMoveDownContent {
+  /** @nocollapse */
   static createContent(containerNode, components) {
     let instances = new Array(components.length);
     let indexByKey = new Map;

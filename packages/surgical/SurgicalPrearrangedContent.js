@@ -9,6 +9,7 @@ import updateNodeChildrenStaticallyIndexed from './core/updateNodeChildrenStatic
 // TODO: maybe just storing last non-null instance is measurably faster?
 
 export default class SurgicalPrearrangedContent {
+  /** @nocollapse */
   static createContent(containerNode, components) {
     let that = new SurgicalPrearrangedContent;
     let instances = new Array(components.length);

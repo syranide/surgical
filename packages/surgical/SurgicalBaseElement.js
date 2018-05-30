@@ -46,6 +46,7 @@ function _createComponent(elementClass, node, props) {
 }
 
 export default class SurgicalBaseElement {
+  /** @nocollapse */
   static createComponent(ownerDocument, props) {
     let tagName = _getTagName(this.tagName, props.tagName);
 
@@ -60,6 +61,7 @@ export default class SurgicalBaseElement {
     return _createComponent(this, node, props);
   }
 
+  /** @nocollapse */
   static createComponentOnNode(externalNode, props) {
     let tagName = _getTagName(this.tagName, props.tagName);
 

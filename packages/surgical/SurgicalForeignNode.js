@@ -4,6 +4,7 @@
 //       maybe this is good enough and more advanced use-cases can use custom components
 
 export default class SurgicalForeignNode {
+  /** @nocollapse */
   static createComponent(ownerDocument, node) {
     let that = new SurgicalForeignNode;
 
@@ -26,6 +27,7 @@ export default class SurgicalForeignNode {
     return that;
   }
 
+  /** @nocollapse */
   static createComponentOnNode(externalNode, node) {
     throw new Error('Cannot create foreign node on node');
   }

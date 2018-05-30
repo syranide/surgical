@@ -1,4 +1,5 @@
 export default class SurgicalComment {
+  /** @nocollapse */
   static createComponent(ownerDocument, text) {
     let that = new SurgicalComment;
     that.node = ownerDocument.createComment(text);
@@ -7,6 +8,7 @@ export default class SurgicalComment {
     return that;
   }
 
+  /** @nocollapse */
   static createComponentOnNode(externalNode, text) {
     throw new Error;
   }

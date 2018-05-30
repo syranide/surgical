@@ -171,10 +171,12 @@ class SurgicalDeclarativeComponentHost {
 }
 
 export default class SurgicalDeclarativeComponent {
+  /** @nocollapse */
   static createComponent(ownerDocument, data) {
     return SurgicalDeclarativeComponentHost.createComponent(this, ownerDocument, data);
   }
 
+  /** @nocollapse */
   static createComponentOnNode(externalNode, data) {
     return SurgicalDeclarativeComponentHost.createComponentOnNode(this, externalNode, data);
   }

@@ -23,12 +23,14 @@ function _createComponent(instance, data) {
 }
 
 export default class SurgicalInstanceRef {
+  /** @nocollapse */
   static createComponent(ownerDocument, data) {
     let child = data.child;
     let instance = child.type.createComponent(ownerDocument, child.data);
     return _createComponent(instance, data);
   }
 
+  /** @nocollapse */
   static createComponentOnNode(externalNode, data) {
     let child = data.child;
     let instance = child.type.createComponentOnNode(externalNode, child.data);
