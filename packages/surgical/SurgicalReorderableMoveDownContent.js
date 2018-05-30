@@ -135,7 +135,7 @@ export default class SurgicalReorderableMoveDownContent {
       try {
         instances[i].destroy();
       } catch (e) {
-        throw enhanceError(e, 'destroy', component);
+        throw enhanceError(e, 'destroy', this.components[i]);
       }
     }
   }
