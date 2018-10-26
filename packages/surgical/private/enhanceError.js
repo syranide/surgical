@@ -17,11 +17,11 @@ export default function enhanceError(e, method, component) {
   }
 
   // IE/IEdge does not support changing "message", but "description" works.
-  if ('description' in e) {
+  /*if ('description' in e) {
     e.description += '\n' + str;
   }
 
-  e.message += '\n' + str;
+  e.message += '\n' + str;*/
 
   return e;
 }
