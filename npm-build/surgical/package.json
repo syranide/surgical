@@ -1,6 +1,6 @@
 {
   "name": "surgical",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "license": "MIT",
   "description": "Surgical is a declarative JavaScript library with native DOM flexibility and performance, for building fast UIs.",
   "author": "Andreas Svensson <andreas@syranide.com>",

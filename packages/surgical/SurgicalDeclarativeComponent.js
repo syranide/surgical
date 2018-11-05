@@ -1,5 +1,3 @@
-import enhanceError from './private/enhanceError';
-
 class SurgicalDeclarativeComponentHost {
   static createComponent(componentClass, ownerDocument, props) {
     let that = new SurgicalDeclarativeComponentHost;
@@ -19,12 +17,8 @@ class SurgicalDeclarativeComponentHost {
 
     // componentInstance.dirty = false;
 
-    let renderInstance;
-    try {
-      renderInstance = renderComponent.type.createComponent(ownerDocument, renderComponent.data);
-    } catch (e) {
-      throw enhanceError(e, 'createComponent', renderComponent);
-    }
+    // TODO: try-finally
+    let renderInstance = renderComponent.type.createComponent(ownerDocument, renderComponent.data);
 
     that.node = renderInstance.node;
     that.renderedProps = props;

@@ -1,4 +1,3 @@
-import enhanceError from './private/enhanceError';
 import updateNodeChildrenMoveDown from './core/updateNodeChildrenMoveDown';
 
 
@@ -23,12 +22,8 @@ export default class SurgicalReorderableMoveDownContent {
         throw new Error('Child or key must not be undefined');
       }
 
-      let instance;
-      try {
-        instance = component.type.createComponent(ownerDocument, component.data);
-      } catch (e) {
-        throw enhanceError(e, 'createComponent', component);
-      }
+      // TODO: try-finally
+      let instance = component.type.createComponent(ownerDocument, component.data);
       instances[i] = instance;
       nodes[i] = instance.node;
       indexByKey.set(component.key, i);
@@ -80,11 +75,8 @@ export default class SurgicalReorderableMoveDownContent {
       let j = nextIndexByKey.get(lastComponent.key);
       if (j === undefined ||
           lastComponent.type !== nextComponents[j].type) {
-        try {
-          lastInstances[i].destroy();
-        } catch (e) {
-          throw enhanceError(e, 'destroy', lastComponent);
-        }
+        // TODO: try-finally
+        lastInstances[i].destroy();
       }
     }
 
@@ -95,18 +87,13 @@ export default class SurgicalReorderableMoveDownContent {
       let j = lastIndexByKey.get(nextComponent.key);
       if (j === undefined ||
           nextComponent.type !== lastComponents[j].type) {
-        try {
-          nextInstance = nextComponent.type.createComponent(ownerDocument, nextComponent.data);
-        } catch (e) {
-          throw enhanceError(e, 'createComponent', nextComponent);
-        }
+        // TODO: try-finally
+        nextInstance = nextComponent.type.createComponent(ownerDocument, nextComponent.data);
+
       } else {
         nextInstance = lastInstances[j];
-        try {
-          nextInstance.update(nextComponent.data);
-        } catch (e) {
-          throw enhanceError(e, 'update', nextComponent);
-        }
+        // TODO: try-finally
+        nextInstance.update(nextComponent.data);
       }
 
       nextInstances[i] = nextInstance;
@@ -133,11 +120,8 @@ export default class SurgicalReorderableMoveDownContent {
     let instances = this.instances;
 
     for (let i = 0; i < instances.length; i++) {
-      try {
-        instances[i].destroy();
-      } catch (e) {
-        throw enhanceError(e, 'destroy', this.components[i]);
-      }
+      // TODO: try-finally
+      instances[i].destroy();
     }
   }
 

@@ -1,5 +1,4 @@
 import SurgicalText from './SurgicalText';
-import enhanceError from './private/enhanceError';
 
 import updateNodeChildrenStaticallyIndexed from './core/updateNodeChildrenStaticallyIndexed';
 
@@ -24,12 +23,8 @@ export default class SurgicalPrearrangedContent {
           instances[i] = node;
           nodes[i] = node;
         } else {
-          let instance;
-          try {
-            instance = component.type.createComponent(ownerDocument, component.data);
-          } catch (e) {
-            throw enhanceError(e, 'createComponent', component);
-          }
+          // TODO: try-finally
+          let instance = component.type.createComponent(ownerDocument, component.data);
           instances[i] = instance;
           nodes[i] = instance.node;
         }
@@ -82,11 +77,8 @@ export default class SurgicalPrearrangedContent {
               lastComponent.type !== nextComponent.type ||
               lastComponent.key !== nextComponent.key) {
             let lastInstance = instances[i];
-            try {
-              lastInstance.destroy();
-            } catch (e) {
-              throw enhanceError(e, 'destroy', lastComponent);
-            }
+            // TODO: try-finally
+            lastInstance.destroy();
           }
         }
       }
@@ -117,19 +109,13 @@ export default class SurgicalPrearrangedContent {
           if (lastComponent == null ||
               nextComponent.type !== lastComponent.type ||
               nextComponent.key !== lastComponent.key) {
-            try {
-              nextInstance = nextComponent.type.createComponent(ownerDocument, nextComponent.data);
-            } catch (e) {
-              throw enhanceError(e, 'createComponent', nextComponent);
-            }
+            // TODO: try-finally
+            nextInstance = nextComponent.type.createComponent(ownerDocument, nextComponent.data);
             instances[i] = nextInstance;
           } else {
             nextInstance = instances[i];
-            try {
-              nextInstance.update(nextComponent.data);
-            } catch (e) {
-              throw enhanceError(e, 'update', nextComponent);
-            }
+            // TODO: try-finally
+            nextInstance.update(nextComponent.data);
           }
 
           nextNodes[i] = nextInstance.node;
@@ -167,11 +153,8 @@ export default class SurgicalPrearrangedContent {
       let component = components[i];
       if (component != null &&
           component.type !== SurgicalText) {
-        try {
-          instances[i].destroy();
-        } catch (e) {
-          throw enhanceError(e, 'destroy', component);
-        }
+        // TODO: try-finally
+        instances[i].destroy();
       }
     }
   }
